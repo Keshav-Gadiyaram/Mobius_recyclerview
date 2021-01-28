@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="horizontal" android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:background="#9c564c"
+android:paddingVertical="10dp"
+android:weightSum="1">
+<TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.6"
+    android:textSize="12sp"
+    android:textStyle="bold"
+    android:textColor="#FFFFFF"
+    android:id="@+id/wager_text"
+    android:layout_marginStart="10dp"
+    android:layout_marginVertical="10dp"
+    android:text="For every 100 bet 6 will be released from the bonus amount">
+
+</TextView>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1">
+
+    </View>
+<TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.3"
+    android:textSize="12sp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginVertical="10dp"
+    android:textStyle="bold"
+    android:textColor="#FFFFFF"
+    android:id="@+id/wager_expiry"
+    android:text="Bonus expiry 10 days from the issue "
+    ></TextView>
+
+</LinearLayout>

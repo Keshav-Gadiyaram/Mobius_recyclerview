@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:orientation="horizontal"
+        android:id="@+id/ll">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get 100% upto 20000 "
+            android:id="@+id/valid_until_amount"
+            android:textSize="18sp">
+        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valid until 1Jan,2099 03:32PM "
+                android:layout_below="@+id/valid_until_amount"
+                android:id="@+id/valid_until_date"
+                android:textSize="12sp">
+            </TextView>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
+        </View>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="0.20">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Min.Deposit"
+                android:id="@+id/valid_until_deposit"
+
+                android:layout_alignParentEnd="true"
+                android:textSize="12sp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500 "
+                android:id="@+id/valid_until_deposit_amount"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/valid_until_deposit"
+                android:textSize="12sp">
+            </TextView>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/hideBtn"
+    android:text="Hide Details"
+    android:textSize="12sp"
+    android:layout_below="@+id/ll"
+    android:layout_alignParentLeft="true"
+    android:layout_marginTop="10dp"
+    android:textStyle="bold"
+    android:textColor="@android:color/holo_orange_light"
+    tools:ignore="HardcodedText"></TextView>
+   <!-- <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/up_arrow"
+        android:layout_toRightOf="@+id/hideBtn"
+        android:layout_alignBaseline="@id/hideBtn"
+        ></Button>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Applied"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_alignBaseline="@id/hideBtn"
+        tools:ignore="HardcodedText"></TextView>
+
+    </RelativeLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#92120f"
+        android:elevation="0dp"
+        android:layout_margin="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f4c3b2"
+                android:id="@+id/main"
+                android:layout_margin="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/code"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingHorizontal="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/dashed_border"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#FF0000"
+            android:text="kaskldmad">
+        </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@id/code"
+                    android:paddingHorizontal="10dp"
+                    android:id="@+id/ribbon_msg"
+                    android:background="@android:color/holo_green_light"
+                    android:textColor="#FFFFFF"
+                    android:text="haoho">
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/percentage_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@id/code"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/percentage">
+                </ImageView>
+
+                <include layout="@layout/vaild_until"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/code"
+                    android:layout_toEndOf="@+id/percentage_iv"
+                    android:id="@+id/wager_item">
+                </include>
+
+               <include layout="@layout/slab_header"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                   android:layout_marginVertical="5dp"
+                    android:layout_below="@+id/wager_item"
+                    android:id="@+id/slab_header">
+               </include>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/slab_header"
+                    android:orientation="vertical"
+                    android:id="@+id/rv_slab">
+                </androidx.recyclerview.widget.RecyclerView>
+                <include layout="@layout/wager"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/rv_slab">
+                </include>
+            </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="5dp"
+    android:background="@color/cardview_dark_background">
+</View>
+</LinearLayout>
