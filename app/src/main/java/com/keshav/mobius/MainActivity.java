@@ -1,7 +1,15 @@
 package com.keshav.mobius;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,15 +28,46 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     MyAdapter myAdapter;
+    Button tryBtn;
+    public static ProgressDialog mProgressDialog;
     Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = this;
+        tryBtn = findViewById(R.id.tryBtn);
         recyclerView = findViewById(R.id.listViewVouchers);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        getVouchers();
+        mProgressDialog = new ProgressDialog(MainActivity.this);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.setMessage("Please wait....");
+        if(isConnected()) {
+            mProgressDialog.show();
+            tryBtn.setVisibility(View.GONE);
+            new Task().execute();
+        }
+        else {
+            Toast.makeText(this, "Please turn on internet", Toast.LENGTH_SHORT).show();
+            mProgressDialog.dismiss();
+            tryBtn.setVisibility(View.VISIBLE);
+            tryBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(isConnected()){
+                        mProgressDialog.show();
+                        tryBtn.setVisibility(View.GONE);
+                        new Task().execute();
+                    }
+                    else{
+
+                        Toast.makeText(MainActivity.this, "Please turn on internet", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            });
+            //finish();
+        }
 
     }
 
@@ -57,6 +96,29 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
     }
+
+    public boolean isConnected() {
+        boolean connected = false;
+        try {
+            ConnectivityManager cm = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo nInfo = cm.getActiveNetworkInfo();
+            connected = nInfo != null && nInfo.isAvailable() && nInfo.isConnected();
+            return connected;
+        } catch (Exception e) {
+            Log.e("Connectivity Exception", e.getMessage());
+        }
+        return connected;
+    }
+class Task extends AsyncTask<String,String,String> {
+
+    @Override
+    protected String doInBackground(String... strings) {
+        getVouchers();
+        return null;
+    }
+}
+
 
 }

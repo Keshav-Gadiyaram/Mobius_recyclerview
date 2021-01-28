@@ -1,18 +1,12 @@
 package com.keshav.mobius.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.text.Html;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +14,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.keshav.mobius.MainActivity;
 import com.keshav.mobius.R;
 import com.keshav.mobius.model.Slab;
 import com.keshav.mobius.model.Voucher;
@@ -27,7 +22,6 @@ import com.keshav.mobius.model.Voucher;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -35,6 +29,7 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
     Context context;
+
     private RecyclerView.RecycledViewPool
             viewPool
             = new RecyclerView
@@ -76,6 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
             wager_text = view.findViewById(R.id.wager_text);
             wager_expiry = view.findViewById(R.id.wager_expiry);
             ChildRecyclerView = itemView.findViewById(R.id.rv_slab);
+
         }
     }
 
@@ -114,6 +110,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         holder.ChildRecyclerView.setLayoutManager(layoutManager);
         holder.ChildRecyclerView.setAdapter(childItemAdapter);
         holder.ChildRecyclerView.setRecycledViewPool(viewPool);
+        MainActivity.mProgressDialog.dismiss();
 
     }
 
