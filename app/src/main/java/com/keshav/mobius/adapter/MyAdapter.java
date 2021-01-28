@@ -102,7 +102,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         String days = voucher.getWager_bonus_expiry()+" days";
 
         holder.wager_expiry.setText(Html.fromHtml("<font color=white>" + "Bonus expiry " + "<font color=yellow>" + days +"</font>"+ "<font color=white>" + " from the issue" + "</font>"));
-        holder.wager_text.setText(Html.fromHtml("<font color=white>" + "For every " + "<font color=yellow>" + "₹"+voucher.getWager_to_release_ratio_numerator() +"</font>"+ "font color=white"+"bet "+"</font>"+"<font color =yellow"+"<font color=yellow>"+"₹"+voucher.getWager_to_release_ratio_denominator()+"</font>"+ "<font color=white>"+" will be released from the bonus amount" + "</font>"));
+        holder.wager_text.setText(Html.fromHtml("<font color=white>" + "For every " + "<font color=yellow>" + "₹"+voucher.getWager_to_release_ratio_numerator() +"</font>"+ "<font color=white>"+" bet "+"</font>"+"<font color =yellow"+"<font color=yellow>"+"₹"+voucher.getWager_to_release_ratio_denominator()+"</font>"+ "<font color=white>"+" will be released from the bonus amount" + "</font>"));
        // holder.wager_expiry.setText("Bonus expiry "+voucher.getWager_bonus_expiry()+" days from the issue");
         LinearLayoutManager layoutManager = new LinearLayoutManager(holder.ChildRecyclerView.getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setInitialPrefetchItemCount(voucher.getSlabs().size());
